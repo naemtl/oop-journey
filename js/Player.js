@@ -9,20 +9,20 @@ class Player {
     this.domElement.style.top = this.y + "px";
     this.domElement.style.zIndex = 10;
     this.domElement.style.height = "125px";
+    this.domElement.style.transform = "scaleX(-1)";
     root.append(this.domElement);
   }
   moveLeft = () => {
     if (this.x > 0) {
-      this.x = this.x - PLAYER_WIDTH;
+      this.x = this.x - 70;
     }
     this.domElement.style.left = this.x + "px";
-    this.domElement.style.transform = "scaleX(1)";
+    // never look back this.domElement.style.transform = "scaleX(1)";
   };
   moveRight = () => {
     if (this.x + PLAYER_WIDTH < GAME_WIDTH) {
-      this.x = this.x + PLAYER_WIDTH;
+      this.x = this.x + 70;
     }
-    this.domElement.style.transform = "scaleX(-1)";
     this.domElement.style.left = this.x + "px";
   };
   moveUp = () => {

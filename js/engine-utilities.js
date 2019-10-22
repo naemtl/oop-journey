@@ -14,16 +14,17 @@ let nextEnemySpot = enemies => {
 
 let addBackground = root => {
   let bg = document.createElement("img");
-  bg.src = "images/stars.png";
+  bg.src = "images/loopForest.gif";
   bg.style.height = GAME_HEIGHT + "px";
   bg.style.width = GAME_WIDTH + "px";
   root.append(bg);
   let whiteBox = document.createElement("div");
+  whiteBox.id = "whitebox";
   whiteBox.style.position = "absolute";
   whiteBox.style.top = GAME_HEIGHT + "px";
-  whiteBox.style.height = ENEMY_HEIGHT + "px";
+  whiteBox.style.height = 150 + "px";
   whiteBox.style.width = GAME_WIDTH + "px";
   whiteBox.style.zIndex = 100;
   whiteBox.style.background = "#fff";
-  root.append(whiteBox);
+  //root.append(whiteBox);
 };

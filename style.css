@@ -1,0 +1,12 @@
+body {
+  background: black;
+}
+
+#game-info {
+  color: white;
+  font-family: monospace;
+  position: absolute;
+  bottom: 40px;
+  margin: 0 auto;
+  padding: 0 200px;
+}

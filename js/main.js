@@ -1,3 +1,10 @@
+let app = document.getElementById("app");
+app.style.position = "absolute";
+app.style.left = "50%";
+app.style.transform = "translate(-50%,0)";
+let audio = new Audio("./madForest.mp3");
+audio.autoplay;
+audio.loop = true;
 let gameEngine = new Engine(document.getElementById("app"));
 let keyDownHandler = event => {
   if (event.code === "ArrowLeft") {
@@ -12,8 +19,10 @@ let keyDownHandler = event => {
   if (event.code === "ArrowDown") {
     gameEngine.player.moveDown();
   }
+  if (event.code === "Space") {
+    gameEngine.gameLoop();
+    audio.play();
+  }
 };
 document.addEventListener("keydown", keyDownHandler);
-gameEngine.gameLoop();
 gameEngine.increaseEnemies();
-// gameEngine.score.update("hello");

@@ -6,14 +6,22 @@ class Engine {
     this.maxEnemies = MAX_ENEMIES;
     this.speedMult = 0;
     addBackground(this.root);
-    this.score = new Text(this.root, 300, 200);
+    this.score = new Text(this.root, 20, 15);
     this.currentScore = 0;
   }
   isPlayerDead() {
     let collision = false;
     this.enemies.forEach(enemy => {
       let enemyBottom = enemy.y + ENEMY_HEIGHT;
-      if (enemy.x === this.player.x && enemyBottom >= this.player.y) {
+      // old formula if (enemy.x === this.player.x && enemyBottom >= this.player.y) {
+      //   collision = true;
+      // }
+      if (
+        enemyBottom > this.player.y &&
+        enemy.y < this.player.y + PLAYER_HEIGHT &&
+        ENEMY_WIDTH + enemy.x > this.player.x &&
+        this.player.x + PLAYER_WIDTH > enemy.x
+      ) {
         collision = true;
       }
     });
@@ -24,8 +32,8 @@ class Engine {
     let timeDiff = new Date().getTime() - this.lastFrame;
     this.lastFrame = new Date().getTime();
     console.log(this.score);
-    this.currentScore += 20;
-    // this.score.update = this.currentScore;
+    this.currentScore += 200;
+    this.score.update(this.currentScore);
     this.enemies.forEach(enemy => {
       enemy.update(timeDiff);
     });
@@ -41,6 +49,13 @@ class Engine {
     }
     if (this.isPlayerDead()) {
       window.alert("Game over");
+      this.currentScore = 0;
+      this.maxEnemies = 1;
+      this.speedMult = 0;
+      return;
+    }
+    if (this.currentScore === 1000000) {
+      window.alert("You win! :)");
       return;
     }
     setTimeout(this.gameLoop, 20);
