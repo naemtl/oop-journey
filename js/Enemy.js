@@ -6,7 +6,7 @@ class Enemy {
     this.y = -ENEMY_HEIGHT;
     this.destroyed = false;
     this.domElement = document.createElement("img");
-    this.domElement.src = "images/enemy.png";
+    this.domElement.src = "images/crazyboo.gif";
     this.domElement.style.position = "absolute";
     this.domElement.style.left = this.x + "px";
     this.domElement.style.top = this.y + "px";
@@ -21,7 +21,6 @@ class Enemy {
     //diagonal
     //this.x = this.x + timeDiff * this.speed;
     //this.domElement.style.left = this.x + "px";
-    //setTimeout(this.increaseSpeed, 5000);
     console.log(this.speed);
 
     if (this.y > GAME_HEIGHT) {

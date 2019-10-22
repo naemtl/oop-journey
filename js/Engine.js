@@ -6,6 +6,8 @@ class Engine {
     this.maxEnemies = MAX_ENEMIES;
     this.speedMult = 0;
     addBackground(this.root);
+    this.score = new Text(this.root, 300, 200);
+    this.currentScore = 0;
   }
   isPlayerDead() {
     let collision = false;
@@ -21,6 +23,9 @@ class Engine {
     if (this.lastFrame === undefined) this.lastFrame = new Date().getTime();
     let timeDiff = new Date().getTime() - this.lastFrame;
     this.lastFrame = new Date().getTime();
+    console.log(this.score);
+    this.currentScore += 20;
+    // this.score.update = this.currentScore;
     this.enemies.forEach(enemy => {
       enemy.update(timeDiff);
     });

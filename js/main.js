@@ -16,3 +16,4 @@ let keyDownHandler = event => {
 document.addEventListener("keydown", keyDownHandler);
 gameEngine.gameLoop();
 gameEngine.increaseEnemies();
+// gameEngine.score.update("hello");
